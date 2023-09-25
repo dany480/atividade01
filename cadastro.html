@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Reserva</title>
+    
+    <link href="estilo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Cadastro de Reserva de Vaga</h1>
+    <a href="listaVagas.html">Lista de Vagas</a>
+    <form id="cadastroForm">
+        <label for="placa">Placa do Veículo:</label>
+        <input type="text" id="placa" required><br>
+
+        <label for="nome">Nome do Proprietário:</label>
+        <input type="text" id="nome" required><br>
+
+        <label for="numeroApartamento">Número do Apartamento:</label>
+        <input type="text" id="numeroApartamento" required><br>
+
+        <label for="blocoApartamento">Bloco do Apartamento:</label>
+        <input type="text" id="blocoApartamento" required><br>
+
+        <label for="modeloVeiculo">Modelo do Veículo:</label>
+        <input type="text" id="modeloVeiculo" required><br>
+
+        <label for="corVeiculo">Cor do Veículo:</label>
+        <input type="text" id="corVeiculo" required><br>
+
+        <label for="numeroVaga">Número da Vaga de Estacionamento:</label>
+        <input type="text" id="numeroVaga" required><br>
+
+        <button type="button" id="salvarBtn">Salvar</button>
+    </form>
+
+    <div id="modalSucesso" class="modal">
+        <div class="modal-content">
+            <span>Cadastro realizado com sucesso!</span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("salvarBtn").addEventListener("click", function () {
+            // Coletar os valores dos campos do formulário
+            const placa = document.getElementById("placa").value;
+            const nome = document.getElementById("nome").value;
+            const numeroApartamento = document.getElementById("numeroApartamento").value;
+            const blocoApartamento = document.getElementById("blocoApartamento").value;
+            const modeloVeiculo = document.getElementById("modeloVeiculo").value;
+            const corVeiculo = document.getElementById("corVeiculo").value;
+            const numeroVaga = document.getElementById("numeroVaga").value;
+
+            // Exibir as informações no console
+            console.log("Placa do Veículo: " + placa);
+            console.log("Nome do Proprietário: " + nome);
+            console.log("Número do Apartamento: " + numeroApartamento);
+            console.log("Bloco do Apartamento: " + blocoApartamento);
+            console.log("Modelo do Veículo: " + modeloVeiculo);
+            console.log("Cor do Veículo: " + corVeiculo);
+            console.log("Número da Vaga de Estacionamento: " + numeroVaga);
+
+            // Exibir mensagem de sucesso
+            document.getElementById("modalSucesso").style.display = "block";
+        });
+
+        // Fechar o pop-up ao clicar fora dele
+        window.onclick = function(event) {
+            const modal = document.getElementById("modalSucesso");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }}
+    </script>
+</body>
+</html>

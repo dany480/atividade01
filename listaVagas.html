@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Vagas</title>
+    
+    <link href="estilo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Listagem de Vagas de Estacionamento</h1>
+    <a href="cadastro.html">Cadastros</a>
+
+    <!-- Tabela para listar as reservas -->
+    <table>
+        <tr>
+            <th>Placa do Veículo</th>
+            <th>Nome do Proprietário</th>
+            <th>Número do Apartamento</th>
+            <th>Bloco do Apartamento</th>
+            <th>Modelo do Veículo</th>
+            <th>Cor do Veículo</th>
+            <th>Número da Vaga</th>
+            <th>Ação</th>
+        </tr>
+        <!-- Dados das reservas -->
+        <tr>
+            <td>ABC-1234</td>
+            <td>João da Silva</td>
+            <td>101</td>
+            <td>Bloco A</td>
+            <td>Sedan</td>
+            <td>Azul</td>
+            <td>1</td>
+            <td><button onclick="excluirReserva(this)">Excluir</button></td>
+        </tr>
+
+        <tr>
+            <td>ABC-889</td>
+            <td>Daison da Silva</td>
+            <td>155</td>
+            <td>Bloco t</td>
+            <td>Cross</td>
+            <td>Rosa</td>
+            <td>2</td>
+            <td><button onclick="excluirReserva(this)">Excluir</button></td>
+        </tr>
+    </table>
+
+    <script>
+        // Função para excluir uma reserva
+        function excluirReserva(button) {
+            const row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row); 
+        }
+    </script>
+</body>
+</html>
