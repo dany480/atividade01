@@ -1,5 +1,6 @@
 /* Estilos do head e body */
-head, body{
+html{
+    height: 100%;
     background: linear-gradient(to bottom, #007bff, #dd4b4b);
 }
 

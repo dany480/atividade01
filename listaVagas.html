@@ -24,7 +24,7 @@
             <th>Ação</th>
         </tr>
         <!-- Dados das reservas -->
-        <tr>
+        <tr id="reserva01">
             <td>ABC-1234</td>
             <td>João da Silva</td>
             <td>101</td>
@@ -32,10 +32,10 @@
             <td>Sedan</td>
             <td>Azul</td>
             <td>1</td>
-            <td><button onclick="excluirReserva(this)">Excluir</button></td>
+            <td><button onclick="excluirReserva('reserva01')">Excluir</button></td>
         </tr>
 
-        <tr>
+        <tr id="reserva02">
             <td>ABC-889</td>
             <td>Daison da Silva</td>
             <td>155</td>
@@ -43,15 +43,37 @@
             <td>Cross</td>
             <td>Rosa</td>
             <td>2</td>
-            <td><button onclick="excluirReserva(this)">Excluir</button></td>
+            <td><button onclick="excluirReserva('reserva02')">Excluir</button></td>
         </tr>
     </table>
 
     <script>
-        // Função para excluir uma reserva
-        function excluirReserva(button) {
-            const row = button.parentNode.parentNode;
-            row.parentNode.removeChild(row); 
+ // Função para excluir uma reserva
+ function excluirReserva(id) {
+            const row = document.getElementById(id);
+            if (row) {
+                // Coletar os dados da reserva antes de removê-la
+                const placa = row.cells[0].innerText;
+                const nome = row.cells[1].innerText;
+                const numeroApartamento = row.cells[2].innerText;
+                const blocoApartamento = row.cells[3].innerText;
+                const modeloVeiculo = row.cells[4].innerText;
+                const corVeiculo = row.cells[5].innerText;
+                const numeroVaga = row.cells[6].innerText;
+
+                // Exibir os dados no console
+                console.log("Dados da Reserva Excluída:");
+                console.log("Placa do Veículo: " + placa);
+                console.log("Nome do Proprietário: " + nome);
+                console.log("Número do Apartamento: " + numeroApartamento);
+                console.log("Bloco do Apartamento: " + blocoApartamento);
+                console.log("Modelo do Veículo: " + modeloVeiculo);
+                console.log("Cor do Veículo: " + corVeiculo);
+                console.log("Número da Vaga de Estacionamento: " + numeroVaga);
+
+                // Remover a linha da tabela
+                row.parentNode.removeChild(row);
+            }
         }
     </script>
 </body>
